@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Anish Rajak!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary: #ff4e50;
+            --secondary: #fc913a;
+            --accent: #6a11cb;
+            --light: #fff6e6;
+            --dark: #2c3e50;
+        }
+
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-family: 'Pacifico', cursive;
+            font-size: 2rem;
+            color: var(--light);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 0;
+        }
+
+        .birthday-boy {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .birthday-boy h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(to right, var(--secondary), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .birthday-boy p {
+            font-size: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .photo-frame {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 30px;
+            border: 5px solid #fff;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 5rem;
+            color: #fff;
+        }
+
+        .counter {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .counter-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 100px;
+            backdrop-filter: blur(10px);
+        }
+
+        .counter-item span {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .cta-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cta-btn:hover {
+            background: #ff6b6b;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-btn:active {
+            transform: translateY(0);
+        }
+
+        .cta-btn.secondary {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .message {
+            text-align: center;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .message h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .message p {
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .page-section {
+            display: none;
+            padding: 40px 0;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--light);
+        }
+
+        /* Wishes Page Styles */
+        .wishes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .wish-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .wish-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .wish-card h3 {
+            margin-bottom: 15px;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .wish-card p {
+            line-height: 1.6;
+        }
+
+        /* Gallery Page Styles */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Balloon Animation */
+        .balloon {
+            position: absolute;
+            width: 30px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            bottom: -100px;
+            animation: float 15s ease-in infinite;
+            z-index: -1;
+        }
+
+        .balloon::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 20px;
+            background: linear-gradient(to bottom, #fff, #ccc);
+        }
+
+        .balloon:nth-child(2n) {
+            background: var(--secondary);
+            left: 10%;
+            animation-delay: 2s;
+            animation-duration: 16s;
+        }
+
+        .balloon:nth-child(3n) {
+            background: var(--accent);
+            left: 20%;
+            animation-delay: 5s;
+            animation-duration: 18s;
+        }
+
+        .balloon:nth-child(4n) {
+            background: #ffd700;
+            left: 30%;
+            animation-delay: 7s;
+            animation-duration: 14s;
+        }
+
+        .balloon:nth-child(5n) {
+            background: #00c853;
+            left: 40%;
+            animation-delay: 1s;
+            animation-duration: 17s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0);
+            }
+            50% {
+                transform: translateX(10px) rotate(5deg);
+            }
+            100% {
+                transform: translateY(-100vh) rotate(10deg);
+            }
+        }
+
+        /* Music Player */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 10px 15px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 100;
+        }
+
+        .music-btn {
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.2rem;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .birthday-boy h1 {
+                font-size: 2.5rem;
+            }
+            
+            .counter {
+                flex-wrap: wrap;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <!-- Balloon elements -->
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+
+    <!-- Music Player -->
+    <div class="music-player">
+        <button class="music-btn" id="playBtn">
+            <i class="fas fa-play"
+             
+             
+             
+             ></i>
+        </button>
+        <audio id="birthdayAudio" loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">Happy Birthday</div>
+            <div class="nav-links">
+                <a href="#" class="nav-link active" data-target="main-page">Home</a>
+                <a href="#" class="nav-link" data-target="wishes-page">Wishes</a>
+                <a href="#" class="nav-link" data-target="gallery-page">Gallery</a>
+            </div>
+        </header>
+
+        <!-- Main Page -->
+        <div id="main-page" class="page-section active">
+            <div class="main-content">
+                <div class="birthday-boy">
+                    <h1>ANISH RAJAK</h1>
+                    <p>Happy birthday 🎂!</p>
+                </div>
+
+                <div class="photo-frame">
+                    <div class="photo-placeholder">
+                        <i class="fas fa-crown"<img src="https://i.ibb.co/998PMXVK/Screenshot-2025-09-07-07-34-53-61-1c337646f29875672b5a61192b9010f9.jpg"</i>
+                    </div>
+                </div>
+
+                <div class="counter">
+                    <div class="counter-item">
+                        <span id="years">0</span>
+                        
+                    </div>
+                    <div class="counter-item">
+                        <span id="days">0</span>
+                        Days
+                    </div>
+                    <div class="counter-item">
+                        <span id="hours">0</span>
+                        Hours
+                    </div>
+                    <div class="counter-item">
+                        <span id="minutes">0</span>
+                        Minutes
+                    </div>
+                </div>
+
+                <div class="cta-buttons">
+                    <button class="cta-btn" data-target="wishes-page">
+                        <i class="fas fa-envelope"></i> View Wishes
+                    </button>
+                    <button class="cta-btn secondary" data-target="gallery-page">
+                        <i class="fas fa-images"></i> View Gallery
+                    </button>
+                </div>
+
+                <div class="message">
+                    <h2>Happy Birthday Anish!
+                    
+                     <a href="https://www.instagram.com/anish_x_rajak_?igsh=d2N4Nm81c2k0bWxz"><i class="fab fa-instagram"></i></a>
+                
+            </div>
+
+                    
+                    </h2>
+                    <p>On this special day, may you be surrounded by joy, laughter, and all the things you love the most. May this year bring you endless opportunities, success in all your endeavors, and happiness that knows no bounds. You deserve the very best today and always!
+                    
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wishes Page -->
+        <div id="wishes-page" class="page-section">
+            <h2 class="section-title">Birthday Wishes</h2>
+            
+            <div class="wishes-container">
+                <div class="wish-card">
+                    <h3><i class="fas fa-heart"></i> From Family</h3>
+                    <p>Dear Anish, on your special day, we wish you a life filled with happiness, success, and good health. May you achieve all your dreams and make us proud. Happy Birthday!</p>
+                </div>
+
+                <div class="wish-card">
+                    <h3><i class="fas fa-laugh"></i> From Friends</h3>
+                    <p>Hey Anish! Another year older, but you're still the same amazing friend. May your birthday be as incredible as you are. Let's make some great memories today!</p>
+                </div>
+
+                <div class="wish-card">
+                    <h3><i class="fas fa-briefcase"></i> From Colleagues</h3>
+                    <p>Happy Birthday Anish! Working with you is a pleasure, and we wish you continued success in your career and personal life. Enjoy your special day!</p>
+                </div>
+
+                <div class="wish-card">
+                    <h3><i class="fas fa-globe"></i> From Well-wishers</h3>
+                    <p>On your birthday, we wish you moments that take your breath away and memories that last a lifetime. May your heart be light and your smile be bright today and always.</p>
+                </div>
+
+                <div class="wish-card">
+                    <h3><i class="fas fa-graduation-cap"></i> From Classmates</h3>
+                    <p>Happy Birthday Anish! May your day be filled with all the joy and happiness you bring to others. Wishing you success in all your future endeavors!</p>
+                </div>
+
+                <div class="wish-card">
+                    <h3><i class="fas fa-star"></i> From Mentors</h3>
+                    <p>To an exceptional individual on his special day - may you continue to shine brightly and inspire those around you. Happy Birthday Anish!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery Page -->
+        <div id="gallery-page" class="page-section">
+            <h2 class="section-title">Enjoy your life every day</h2>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item"><i class="fas fa-cake"></i></div>
+                <div class="gallery-item"><i class="fas fa-gift"></i></div>
+                <div class="gallery-item"><i class="fas fa-music"></i></div>
+                <div class="gallery-item"><i class="fas fa-heart"></i></div>
+                <div class="gallery-item"><i class="fas fa-camera"></i></div>
+                <div class="gallery-item"><i class="fas fa-glass-cheers"></i></div>
+                <div class="gallery-item"><i class="fas fa-umbrella-beach"></i></div>
+                <div class="gallery-item"><i class="fas fa-gamepad"></i></div>
+                <div class="gallery-item"><i class="fas fa-mountain"></i></div>
+                <div class="gallery-item"><i class="fas fa-car"></i></div>
+                <div class="gallery-item"><i class="fas fa-tree"></i></div>
+                <div class="gallery-item"><i class="fas fa-book"></i></div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/code.with.hira?igsh=MTF6eDlnNGIybW9xbw=="><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p>Made with ❤️ for Anish Rajak's Birthday By code with hira | © 2025</p>
+        </footer>
+    </div>
+
+    <script>
+        // Navigation functionality
+        document.querySelectorAll('.nav-link, .cta-btn').forEach(item => {
+            item.addEventListener('click', function() {
+                const target = this.getAttribute('data-target');
+                if (target) {
+                    // Hide all pages
+                    document.querySelectorAll('.page-section').forEach(section => {
+                        section.classList.remove('active');
+                    });
+                    
+                    // Show target page
+                    document.getElementById(target).classList.add('active');
+                    
+                    // Update active nav link
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    
+                    document.querySelector(`.nav-link[data-target="${target}"]`).classList.add('active');
+                }
+            });
+        });
+
+        // Countdown timer (just for show)
+        function updateCounter() {
+            const daysEl = document.getElementById('days');
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            
+            let days = parseInt(daysEl.innerText);
+            let hours = parseInt(hoursEl.innerText);
+            let minutes = parseInt(minutesEl.innerText);
+            
+            minutes += 1;
+            
+            if (minutes >= 60) {
+                minutes = 0;
+                hours += 1;
+            }
+            
+            if (hours >= 24) {
+                hours = 0;
+                days += 0;
+            }
+            
+            daysEl.innerText = days;
+            hoursEl.innerText = hours < 10 ? '0' + hours : hours;
+            minutesEl.innerText = minutes < 10 ? '0' + minutes : minutes;
+        }
+
+        setInterval(updateCounter, 60000);
+
+        // Music player functionality
+        const audio = document.getElementById('birthdayAudio');
+        const playBtn = document.getElementById('playBtn');
+        let isPlaying = false;
+
+        playBtn.addEventListener('click', function() {
+            if (isPlaying) {
+                audio.pause();
+                playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            } else {
+                audio.play();
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Create more balloons
+        function createBalloons() {
+            const balloonsContainer = document.body;
+            for (let i = 0; i < 15; i++) {
+                const balloon = document.createElement('div');
+                balloon.className = 'balloon';
+                
+                // Random position
+                balloon.style.left = Math.random() * 100 + '%';
+                
+                // Random delay
+                balloon.style.animationDelay = Math.random() * 15 + 's';
+                
+                // Random color
+                const colors = ['#ff4e50', '#fc913a', '#6a11cb', '#ffd700', '#00c853'];
+                balloon.style.background = colors[Math.floor(Math.random() * colors.length)];
+                
+                balloonsContainer.appendChild(balloon);
+            }
+        }
+
+        createBalloons();
+    
+        
+    </script>
+</body>
+</html>
